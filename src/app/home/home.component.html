@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="filghtsearch">
+    <h2>Flight Search</h2>
+    <form [formGroup]="searchForm" novalidate>
+      <div class="form-container">
+        <div class="inputmargin">
+          <mat-form-field>
+            <input matInput type="number" placeholder="Flight Number" formControlName="flightNumber">
+          </mat-form-field>
+
+        </div>
+        <div class="inputmargin">
+          <mat-form-field>
+            <input matInput placeholder="Flight Orgin" formControlName="filghtOrgin">
+          </mat-form-field>
+        </div>
+        <div class="inputmargin">
+          <mat-form-field>
+            <input matInput placeholder="Flight Destination" formControlName="flightDes">
+          </mat-form-field>
+        </div>
+        <div class="inputmargin">
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" formControlName="flightDate" placeholder="Flight date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <button mat-raised-button color="primary" class="submit-btn" (click)="onSearch()"
+        [disabled]="!searchForm.valid">Search</button>
+      <button mat-raised-button color="secondary" class="buttonMargin" (click)="onloadForm()">Clear</button>
+    </form>
+    <div *ngIf="dataSource.length > 0" class="tableWidth">
+      <table mat-table [dataSource]="dataSource" class="tableWidth mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="flightNumber">
+          <th mat-header-cell *matHeaderCellDef> Flight Number </th>
+          <td mat-cell *matCellDef="let element"> {{element.flightNumber}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="flightOrgin">
+          <th mat-header-cell *matHeaderCellDef> Flight Orgin </th>
+          <td mat-cell *matCellDef="let element"> {{element.flightOrgin}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="flightDes">
+          <th mat-header-cell *matHeaderCellDef> Flight Destination </th>
+          <td mat-cell *matCellDef="let element"> {{element.flightDes}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="flightDate">
+          <th mat-header-cell *matHeaderCellDef> Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.flightDate}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+    <hr class="noRecords">
+    <div *ngIf="dataSource.length === 0">
+      <h6>No Records</h6>
+    </div>
+    <hr>
+  </div>
+</div>

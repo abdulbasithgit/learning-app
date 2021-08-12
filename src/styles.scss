@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.filghtsearch {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.inputmargin {
+  float: left;
+  margin-right: 20px;
+}
+
+.submit-btn {
+  margin-top: 10px !important;
+}
+
+.tableWidth {
+  width: 100%;
+}
+
+.buttonMargin {
+  margin-left: 10px !important;
+}
+
+.noRecords {
+    margin-top: 20px;
+}

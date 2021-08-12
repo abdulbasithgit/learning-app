@@ -1,0 +1,22 @@
+{
+  "flights": [
+      {
+          "flightNumber": "1",
+          "flightOrgin": "BOM",
+          "flightDes": "MAA",
+          "flightDate": "13-08-2021"
+      },
+      {
+          "flightNumber": "2",
+          "flightOrgin": "MAA",
+          "flightDes": "BOM",
+          "flightDate": "14-08-2021"
+      },
+      {
+          "flightNumber": "2",
+          "flightOrgin": "DEL",
+          "flightDes": "BOM",
+          "flightDate": "15-08-2021"
+      }
+  ]
+}
